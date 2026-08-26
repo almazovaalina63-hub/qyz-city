@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Эскорт Алматы и Астана — живые фото, кыздар 18+</title>
-  <meta name="description" content="Эскорт Алматы и Астана: индивидуалки, VIP и элитные кыздар. Актуальные анкеты с живыми фото. Сразу в Telegram. Только 18+." />
+  <meta name="description" content="Эскорт Алматы и Астана: индивидуалки, VIP и элитные кыздар. Карточки каналов с фото. Сразу в Telegram. Только 18+." />
   <meta name="robots" content="index,follow" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -12,23 +12,20 @@
   <style>
     :root {
       --bg: #070507;
-      --panel: #12080c;
-      --ink: #ffdce6;
-      --mute: #9a7a84;
+      --card: #14080c;
+      --ink: #ffe4ec;
+      --mute: #b08996;
       --pink: #ff2d6a;
       --pink2: #ff6b9d;
       --line: #3a1524;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      font-family: Manrope, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background:
-        linear-gradient(180deg, rgba(7,5,7,.42) 0%, rgba(7,5,7,.72) 38%, rgba(7,5,7,.9) 100%),
-        url("bg.jpg") center top / cover no-repeat fixed;
+      font-family: Manrope, sans-serif;
+      background: #070507;
       color: var(--ink);
-      min-height: 100vh;
     }
-    .wrap { max-width: 980px; margin: 0 auto; padding: 26px 16px 40px; }
+    .wrap { max-width: 1100px; margin: 0 auto; padding: 22px 14px 40px; }
     .brand {
       text-align: center;
       color: var(--pink2);
@@ -36,89 +33,118 @@
       font-size: 11px;
       text-transform: uppercase;
       font-family: Unbounded, sans-serif;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
     h1 {
       text-align: center;
       font-family: Unbounded, sans-serif;
-      font-size: clamp(22px, 5.4vw, 32px);
+      font-size: clamp(22px, 5vw, 32px);
       line-height: 1.25;
-      font-weight: 800;
       margin-bottom: 8px;
     }
     .sub {
       text-align: center;
       color: var(--mute);
       font-size: 14px;
-      margin-bottom: 16px;
-    }
-    .lead {
-      color: #e7c9d2;
-      font-size: 15px;
-      line-height: 1.55;
       margin-bottom: 22px;
-      text-align: center;
     }
-    .grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-      align-items: stretch;
-    }
-    .city {
-      display: flex;
-      flex-direction: column;
-      background: rgba(12,6,9,.82);
-      backdrop-filter: blur(10px);
-      border: 1px solid var(--line);
-      border-radius: 20px;
-      padding: 16px 12px 12px;
-      min-height: 100%;
-      box-shadow: 0 0 0 1px rgba(255,45,106,.08), 0 16px 40px rgba(0,0,0,.35);
-    }
-    .city h2 {
+    h2 {
       font-family: Unbounded, sans-serif;
       font-size: 18px;
-      font-weight: 600;
+      margin: 8px 0 12px;
+    }
+    h2 span { color: var(--pink); }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+    .slider {
+      position: relative;
+      aspect-ratio: 3 / 4;
+      background: #0a0507;
+      overflow: hidden;
+    }
+    .slider img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity .25s ease;
+    }
+    .slider img.active { opacity: 1; }
+    .nav {
+      position: absolute;
+      top: 0; bottom: 0;
+      width: 38%;
+      z-index: 2;
+      border: 0;
+      background: transparent;
+      cursor: pointer;
+    }
+    .nav.prev { left: 0; }
+    .nav.next { right: 0; }
+    .dots {
+      position: absolute;
+      left: 0; right: 0; bottom: 8px;
+      display: flex;
+      justify-content: center;
+      gap: 5px;
+      z-index: 3;
+    }
+    .dots i {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.35);
+    }
+    .dots i.on { background: #fff; }
+    .meta { padding: 10px 10px 12px; }
+    .city {
+      color: var(--pink2);
+      font-size: 11px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
       margin-bottom: 4px;
     }
-    .city h2 span { color: var(--pink); }
-    .city .hint {
-      color: var(--mute);
-      font-size: 13px;
-      margin-bottom: 8px;
-    }
-    .links {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-    .city a {
-      display: block;
-      color: var(--ink);
-      text-decoration: none;
-      padding: 8px 10px;
-      border-radius: 10px;
+    .name {
       font-size: 14px;
-      font-weight: 700;
-      letter-spacing: .01em;
-      transition: background .15s ease, color .15s ease;
+      font-weight: 800;
+      line-height: 1.3;
+      margin-bottom: 10px;
     }
-    .city a:hover,
-    .city a:focus {
-      background: rgba(255,45,106,.16);
-      color: #fff;
+    .tg {
+      display: block;
+      text-align: center;
+      text-decoration: none;
+      color: #140208;
+      background: linear-gradient(180deg, #ff8ab0, var(--pink));
+      border-radius: 999px;
+      padding: 9px 10px;
+      font-size: 13px;
+      font-weight: 800;
     }
+    .tg:hover { filter: brightness(1.08); }
     footer {
       text-align: center;
       color: var(--mute);
       font-size: 12px;
-      margin-top: 20px;
+      margin-top: 8px;
     }
-    @media (max-width: 720px) {
-      .grid { grid-template-columns: 1fr; }
-      .links { justify-content: flex-start; }
+    @media (max-width: 860px) {
+      .grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 520px) {
+      .grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+      .name { font-size: 12px; }
     }
   </style>
 </head>
@@ -127,53 +153,93 @@
     <div class="brand">Qyz Night</div>
     <h1>Эскорт Алматы и Астана — живые фото, 18+</h1>
     <p class="sub">Алматы · Астана · сразу в Telegram · 18+</p>
-    <p class="lead">Горячие кыздар Казахстана: индивидуалки, VIP и элитный эскорт. Выберите город и откройте подборку.</p>
 
-    <div class="grid">
-      <section class="city">
-        <h2>Алматы <span>/</span> анкеты</h2>
-        <p class="hint">Эскорт и индивидуалки</p>
-        <div class="links">
-          <a href="https://t.me/SexyGirlsAlmatyVIP" target="_blank" rel="noopener">Sexy Girls Almaty VIP</a>
-          <a href="https://t.me/VIPKyzdarAlmaty" target="_blank" rel="noopener">VIP Kyzdar Almaty</a>
-          <a href="https://t.me/AlmatyVipEscort" target="_blank" rel="noopener">Almaty VIP Escort</a>
-          <a href="https://t.me/HotKyzdarAlmaty" target="_blank" rel="noopener">Hot Kyzdar Almaty</a>
-          <a href="https://t.me/Individualki_Almaty1" target="_blank" rel="noopener">Individualki Almaty</a>
-          <a href="https://t.me/Kizdar_almaty12" target="_blank" rel="noopener">Kizdar Almaty</a>
-          <a href="https://t.me/kyzdarEscortAlmaty" target="_blank" rel="noopener">Kyzdar Escort Almaty</a>
-          <a href="https://t.me/BestKyzdarAlmaty" target="_blank" rel="noopener">Best Kyzdar Almaty</a>
-          <a href="https://t.me/PohotlivyeKyzdar" target="_blank" rel="noopener">Pohotlivye Kyzdar</a>
-          <a href="https://t.me/PremiumKyzdazAlmaty" target="_blank" rel="noopener">Premium Kyzdar Almaty</a>
-          <a href="https://t.me/RazvratnyeKyzdar" target="_blank" rel="noopener">Razvratnye Kyzdar</a>
-          <a href="https://t.me/EliteEscortAlmaty" target="_blank" rel="noopener">Elite Escort Almaty</a>
-          <a href="https://t.me/Almatinsky_VIP_Kyzdar" target="_blank" rel="noopener">Almatinsky VIP Kyzdar</a>
-        </div>
-      </section>
+    <h2>Алматы <span>/</span> анкеты</h2>
+    <div class="grid" id="almaty"></div>
 
-      <section class="city">
-        <h2>Астана <span>/</span> анкеты</h2>
-        <p class="hint">Эскорт и проститутки</p>
-        <div class="links">
-          <a href="https://t.me/Pohotlivye_Kyzdar_Astana" target="_blank" rel="noopener">Pohotlivye Kyzdar Astana</a>
-          <a href="https://t.me/Prostitutki_Astana3" target="_blank" rel="noopener">Prostitutki Astana</a>
-          <a href="https://t.me/LuxKyzdarAstana" target="_blank" rel="noopener">Lux Kyzdar Astana</a>
-          <a href="https://t.me/GoryachiyEscortAstana" target="_blank" rel="noopener">Goryachiy Escort Astana</a>
-          <a href="https://t.me/VIP_Kyzdar_Astana" target="_blank" rel="noopener">VIP Kyzdar Astana</a>
-          <a href="https://t.me/VeryHotKyzdarAstana" target="_blank" rel="noopener">Very Hot Kyzdar Astana</a>
-          <a href="https://t.me/Best_Kyzdar_Astana" target="_blank" rel="noopener">Best Kyzdar Astana</a>
-          <a href="https://t.me/VIP_Krasotki_Astana" target="_blank" rel="noopener">VIP Krasotki Astana</a>
-          <a href="https://t.me/EliteKyzdarAstana" target="_blank" rel="noopener">Elite Kyzdar Astana</a>
-          <a href="https://t.me/SochnyeKrasotkiAstana" target="_blank" rel="noopener">Sochnye Krasotki Astana</a>
-          <a href="https://t.me/Lux_Kyzdar_Astana" target="_blank" rel="noopener">Lux Kyzdar Astana</a>
-          <a href="https://t.me/VIP_Beauties_Astana" target="_blank" rel="noopener">VIP Beauties Astana</a>
-          <a href="https://t.me/Hot_Kyzdar_Astana" target="_blank" rel="noopener">Hot Kyzdar Astana</a>
-          <a href="https://t.me/KyzdarAstanaPrivate" target="_blank" rel="noopener">Kyzdar Astana Private</a>
-          <a href="https://t.me/KyzdarAstanaNonStop" target="_blank" rel="noopener">Kyzdar Astana NonStop</a>
-        </div>
-      </section>
-    </div>
+    <h2>Астана <span>/</span> анкеты</h2>
+    <div class="grid" id="astana"></div>
 
     <footer>18+ · Qyz Night</footer>
   </div>
+
+  <script>
+    const PHOTOS = ["img/p1.jpg", "img/p2.jpg"];
+
+    const almaty = [
+      ["Sexy Girls Almaty VIP", "https://t.me/SexyGirlsAlmatyVIP"],
+      ["VIP Kyzdar Almaty", "https://t.me/VIPKyzdarAlmaty"],
+      ["Almaty VIP Escort", "https://t.me/AlmatyVipEscort"],
+      ["Hot Kyzdar Almaty", "https://t.me/HotKyzdarAlmaty"],
+      ["Individualki Almaty", "https://t.me/Individualki_Almaty1"],
+      ["Kizdar Almaty", "https://t.me/Kizdar_almaty12"],
+      ["Kyzdar Escort Almaty", "https://t.me/kyzdarEscortAlmaty"],
+      ["Best Kyzdar Almaty", "https://t.me/BestKyzdarAlmaty"],
+      ["Pohotlivye Kyzdar", "https://t.me/PohotlivyeKyzdar"],
+      ["Premium Kyzdar Almaty", "https://t.me/PremiumKyzdazAlmaty"],
+      ["Razvratnye Kyzdar", "https://t.me/RazvratnyeKyzdar"],
+      ["Elite Escort Almaty", "https://t.me/EliteEscortAlmaty"],
+      ["Almatinsky VIP Kyzdar", "https://t.me/Almatinsky_VIP_Kyzdar"]
+    ];
+
+    const astana = [
+      ["Pohotlivye Kyzdar Astana", "https://t.me/Pohotlivye_Kyzdar_Astana"],
+      ["Prostitutki Astana", "https://t.me/Prostitutki_Astana3"],
+      ["Lux Kyzdar Astana", "https://t.me/LuxKyzdarAstana"],
+      ["Goryachiy Escort Astana", "https://t.me/GoryachiyEscortAstana"],
+      ["VIP Kyzdar Astana", "https://t.me/VIP_Kyzdar_Astana"],
+      ["Very Hot Kyzdar Astana", "https://t.me/VeryHotKyzdarAstana"],
+      ["Best Kyzdar Astana", "https://t.me/Best_Kyzdar_Astana"],
+      ["VIP Krasotki Astana", "https://t.me/VIP_Krasotki_Astana"],
+      ["Elite Kyzdar Astana", "https://t.me/EliteKyzdarAstana"],
+      ["Sochnye Krasotki Astana", "https://t.me/SochnyeKrasotkiAstana"],
+      ["Lux Kyzdar Astana 2", "https://t.me/Lux_Kyzdar_Astana"],
+      ["VIP Beauties Astana", "https://t.me/VIP_Beauties_Astana"],
+      ["Hot Kyzdar Astana", "https://t.me/Hot_Kyzdar_Astana"],
+      ["Kyzdar Astana Private", "https://t.me/KyzdarAstanaPrivate"],
+      ["Kyzdar Astana NonStop", "https://t.me/KyzdarAstanaNonStop"]
+    ];
+
+    function card(city, name, url) {
+      const photos = PHOTOS.map((src, i) =>
+        `<img src="${src}" alt="${name}" class="${i === 0 ? "active" : ""}">`
+      ).join("");
+      const dots = PHOTOS.map((_, i) => `<i class="${i === 0 ? "on" : ""}"></i>`).join("");
+      return `<article class="card">
+        <div class="slider">
+          ${photos}
+          <button class="nav prev" type="button" aria-label="prev"></button>
+          <button class="nav next" type="button" aria-label="next"></button>
+          <div class="dots">${dots}</div>
+        </div>
+        <div class="meta">
+          <div class="city">${city}</div>
+          <div class="name">${name}</div>
+          <a class="tg" href="${url}" target="_blank" rel="noopener">Открыть Telegram</a>
+        </div>
+      </article>`;
+    }
+
+    function render(id, city, list) {
+      document.getElementById(id).innerHTML = list.map(([n, u]) => card(city, n, u)).join("");
+    }
+
+    render("almaty", "Алматы", almaty);
+    render("astana", "Астана", astana);
+
+    document.querySelectorAll(".slider").forEach((slider) => {
+      const imgs = [...slider.querySelectorAll("img")];
+      const dots = [...slider.querySelectorAll(".dots i")];
+      let i = 0;
+      const show = (n) => {
+        i = (n + imgs.length) % imgs.length;
+        imgs.forEach((el, k) => el.classList.toggle("active", k === i));
+        dots.forEach((el, k) => el.classList.toggle("on", k === i));
+      };
+      slider.querySelector(".prev").onclick = () => show(i - 1);
+      slider.querySelector(".next").onclick = () => show(i + 1);
+      setInterval(() => show(i + 1), 4500);
+    });
+  </script>
 </body>
 </html>
