@@ -26,7 +26,7 @@
       color: var(--ink);
       min-height: 100vh;
     }
-    .wrap { max-width: 640px; margin: 0 auto; padding: 26px 16px 40px; }
+    .wrap { max-width: 920px; margin: 0 auto; padding: 26px 16px 40px; }
     .brand {
       text-align: center;
       color: var(--pink2);
@@ -46,7 +46,7 @@
       text-align: center;
       color: var(--mute);
       font-size: 14px;
-      margin-bottom: 22px;
+      margin-bottom: 18px;
     }
     .lead {
       color: #e7c9d2;
@@ -55,12 +55,17 @@
       margin-bottom: 22px;
       text-align: center;
     }
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      align-items: start;
+    }
     .city {
       background: var(--panel);
       border: 1px solid var(--line);
       border-radius: 20px;
-      padding: 16px 14px 14px;
-      margin-bottom: 14px;
+      padding: 16px 14px 10px;
       box-shadow: 0 0 0 1px rgba(255,45,106,.08), 0 16px 40px rgba(0,0,0,.35);
     }
     .city h2 {
@@ -72,24 +77,32 @@
     .city .hint {
       color: var(--mute);
       font-size: 13px;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
     .city a {
       display: block;
       color: var(--ink);
       text-decoration: none;
-      padding: 9px 4px;
-      border-top: 1px solid #2a1018;
+      padding: 9px 10px;
+      margin: 0 -6px;
+      border-radius: 10px;
       font-size: 15px;
       font-weight: 600;
+      transition: background .15s ease, color .15s ease;
     }
-    .city a:first-of-type { border-top: 0; }
-    .city a:active { color: var(--pink2); }
+    .city a:hover,
+    .city a:focus {
+      background: rgba(255,45,106,.16);
+      color: #fff;
+    }
     footer {
       text-align: center;
       color: var(--mute);
       font-size: 12px;
-      margin-top: 18px;
+      margin-top: 20px;
+    }
+    @media (max-width: 680px) {
+      .grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -98,45 +111,47 @@
     <div class="brand">Qyz Night</div>
     <h1>Эскорт Алматы и Астана — живые фото, 18+</h1>
     <p class="sub">Алматы · Астана · сразу в Telegram · 18+</p>
-    <p class="lead">Горячие кыздар Казахстана: индивидуалки, VIP и элитный эскорт. Открой город — все каналы в одном блоке.</p>
+    <p class="lead">Горячие кыздар Казахстана: индивидуалки, VIP и элитный эскорт. Выберите город и откройте подборку.</p>
 
-    <section class="city">
-      <h2>Алматы <span>/</span> кыздар</h2>
-      <p class="hint">Эскорт, индивидуалки, VIP, hot · 13 каналов</p>
-      <a href="https://t.me/SexyGirlsAlmatyVIP" target="_blank" rel="noopener">Sexy Girls VIP</a>
-      <a href="https://t.me/VIPKyzdarAlmaty" target="_blank" rel="noopener">VIP кыздар</a>
-      <a href="https://t.me/AlmatyVipEscort" target="_blank" rel="noopener">VIP эскорт</a>
-      <a href="https://t.me/HotKyzdarAlmaty" target="_blank" rel="noopener">Hot кыздар</a>
-      <a href="https://t.me/Individualki_Almaty1" target="_blank" rel="noopener">Индивидуалки Алматы</a>
-      <a href="https://t.me/Kizdar_almaty12" target="_blank" rel="noopener">Кыздар / киздар</a>
-      <a href="https://t.me/kyzdarEscortAlmaty" target="_blank" rel="noopener">Кыздар эскорт</a>
-      <a href="https://t.me/BestKyzdarAlmaty" target="_blank" rel="noopener">Best кыздар</a>
-      <a href="https://t.me/PohotlivyeKyzdar" target="_blank" rel="noopener">Похотливые кыздар</a>
-      <a href="https://t.me/PremiumKyzdazAlmaty" target="_blank" rel="noopener">Premium кыздар</a>
-      <a href="https://t.me/RazvratnyeKyzdar" target="_blank" rel="noopener">Развратные кыздар</a>
-      <a href="https://t.me/EliteEscortAlmaty" target="_blank" rel="noopener">Elite эскорт</a>
-      <a href="https://t.me/Almatinsky_VIP_Kyzdar" target="_blank" rel="noopener">Алматинские VIP</a>
-    </section>
+    <div class="grid">
+      <section class="city">
+        <h2>Алматы <span>/</span> анкеты</h2>
+        <p class="hint">Эскорт и индивидуалки</p>
+        <a href="https://t.me/SexyGirlsAlmatyVIP" target="_blank" rel="noopener">Ночной VIP</a>
+        <a href="https://t.me/VIPKyzdarAlmaty" target="_blank" rel="noopener">Закрытая лента</a>
+        <a href="https://t.me/AlmatyVipEscort" target="_blank" rel="noopener">Премиум эскорт</a>
+        <a href="https://t.me/HotKyzdarAlmaty" target="_blank" rel="noopener">Жаркие фото</a>
+        <a href="https://t.me/Individualki_Almaty1" target="_blank" rel="noopener">Индивидуалки</a>
+        <a href="https://t.me/Kizdar_almaty12" target="_blank" rel="noopener">Свежие анкеты</a>
+        <a href="https://t.me/kyzdarEscortAlmaty" target="_blank" rel="noopener">Эскорт-каталог</a>
+        <a href="https://t.me/BestKyzdarAlmaty" target="_blank" rel="noopener">Топ подборка</a>
+        <a href="https://t.me/PohotlivyeKyzdar" target="_blank" rel="noopener">Похотливые</a>
+        <a href="https://t.me/PremiumKyzdazAlmaty" target="_blank" rel="noopener">Премиум-лента</a>
+        <a href="https://t.me/RazvratnyeKyzdar" target="_blank" rel="noopener">Развратные</a>
+        <a href="https://t.me/EliteEscortAlmaty" target="_blank" rel="noopener">Элитный эскорт</a>
+        <a href="https://t.me/Almatinsky_VIP_Kyzdar" target="_blank" rel="noopener">Городской VIP</a>
+      </section>
 
-    <section class="city">
-      <h2>Астана <span>/</span> кыздар</h2>
-      <p class="hint">Эскорт, проститутки, lux, VIP, hot · 15 каналов</p>
-      <a href="https://t.me/Pohotlivye_Kyzdar_Astana" target="_blank" rel="noopener">Похотливые кыздар</a>
-      <a href="https://t.me/Prostitutki_Astana3" target="_blank" rel="noopener">Проститутки Астаны</a>
-      <a href="https://t.me/LuxKyzdarAstana" target="_blank" rel="noopener">Lux кыздар</a>
-      <a href="https://t.me/GoryachiyEscortAstana" target="_blank" rel="noopener">Горячий эскорт</a>
-      <a href="https://t.me/VIP_Kyzdar_Astana" target="_blank" rel="noopener">VIP кыздар</a>
-      <a href="https://t.me/VeryHotKyzdarAstana" target="_blank" rel="noopener">Very Hot кыздар</a>
-      <a href="https://t.me/Best_Kyzdar_Astana" target="_blank" rel="noopener">Best кыздар</a>
-      <a href="https://t.me/VIP_Krasotki_Astana" target="_blank" rel="noopener">VIP красотки</a>
-      <a href="https://t.me/EliteKyzdarAstana" target="_blank" rel="noopener">Elite кыздар</a>
-      <a href="https://t.me/SochnyeKrasotkiAstana" target="_blank" rel="noopener">Сочные красотки</a>
-      <a href="https://t.me/Lux_Kyzdar_Astana" target="_blank" rel="noopener">Lux кыздар 2</a>
-      <a href="https://t.me/VIP_Beauties_Astana" target="_blank" rel="noopener">VIP Beauties</a>
-      <a href="https://t.me/Hot_Kyzdar_Astana" target="_blank" rel="noopener">Hot кыздар</a>
-      <a href="https://t.me/KyzdarAstanaPrivate" target="_blank" rel="noopener">Private кыздар</a>
-      <a href="https://t.me/KyzdarAstanaNonStop" target="_blank" rel="noopener">Non-stop кыздар</a>
-    </section>
+      <section class="city">
+        <h2>Астана <span>/</span> анкеты</h2>
+        <p class="hint">Эскорт и проститутки</p>
+        <a href="https://t.me/Pohotlivye_Kyzdar_Astana" target="_blank" rel="noopener">Похотливые</a>
+        <a href="https://t.me/Prostitutki_Astana3" target="_blank" rel="noopener">Проститутки</a>
+        <a href="https://t.me/LuxKyzdarAstana" target="_blank" rel="noopener">Люкс-анкеты</a>
+        <a href="https://t.me/GoryachiyEscortAstana" target="_blank" rel="noopener">Горячий эскорт</a>
+        <a href="https://t.me/VIP_Kyzdar_Astana" target="_blank" rel="noopener">Вип-зал</a>
+        <a href="https://t.me/VeryHotKyzdarAstana" target="_blank" rel="noopener">Очень горячие</a>
+        <a href="https://t.me/Best_Kyzdar_Astana" target="_blank" rel="noopener">Лучшие</a>
+        <a href="https://t.me/VIP_Krasotki_Astana" target="_blank" rel="noopener">Красотки</a>
+        <a href="https://t.me/EliteKyzdarAstana" target="_blank" rel="noopener">Элитные</a>
+        <a href="https://t.me/SochnyeKrasotkiAstana" target="_blank" rel="noopener">Сочные</a>
+        <a href="https://t.me/Lux_Kyzdar_Astana" target="_blank" rel="noopener">Люкс-клуб</a>
+        <a href="https://t.me/VIP_Beauties_Astana" target="_blank" rel="noopener">Beauties</a>
+        <a href="https://t.me/Hot_Kyzdar_Astana" target="_blank" rel="noopener">Hot-лента</a>
+        <a href="https://t.me/KyzdarAstanaPrivate" target="_blank" rel="noopener">Приват</a>
+        <a href="https://t.me/KyzdarAstanaNonStop" target="_blank" rel="noopener">Круглосуточно</a>
+      </section>
+    </div>
 
     <footer>18+ · Qyz Night</footer>
   </div>
