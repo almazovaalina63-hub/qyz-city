@@ -3,12 +3,33 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Эскорт Алматы и Астана — живые фото, кыздар 18+</title>
-  <meta name="description" content="Эскорт Алматы и Астана: индивидуалки, VIP и элитные кыздар. Карточки каналов с фото. Сразу в Telegram. Только 18+." />
-  <meta name="robots" content="index,follow" />
+  <title>Эскорт Алматы и Астана — кыздар, индивидуалки, живые фото 18+</title>
+  <meta name="description" content="Эскорт и индивидуалки Алматы и Астаны: актуальные анкеты кыздар с фото, ростом, возрастом и параметрами. VIP и элитные подборки сразу в Telegram. Только 18+." />
+  <meta name="keywords" content="эскорт Алматы, эскорт Астана, кыздар Алматы, кыздар Астана, индивидуалки Алматы, индивидуалки Астана, проститутки Астана, VIP эскорт Казахстан" />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <link rel="canonical" href="https://lux-city.top/qyz-city/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="ru_RU" />
+  <meta property="og:title" content="Эскорт Алматы и Астана — кыздар 18+" />
+  <meta property="og:description" content="Анкеты кыздар Алматы и Астаны с живыми фото. Переход в Telegram." />
+  <meta property="og:url" content="https://lux-city.top/qyz-city/" />
+  <meta property="og:image" content="https://lux-city.top/qyz-city/bg.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Unbounded:wght@600;800&display=swap" rel="stylesheet" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Эскорт Алматы и Астана",
+    "url": "https://lux-city.top/qyz-city/",
+    "inLanguage": "ru",
+    "about": "Анкеты кыздар Алматы и Астаны 18+",
+    "isFamilyFriendly": false
+  }
+  </script>
   <style>
     :root {
       --bg: #070507;
@@ -142,6 +163,22 @@
       font-size: 12px;
       margin-top: 8px;
     }
+    .seo {
+      margin: 22px 0 10px;
+      color: #d7b8c2;
+      font-size: 14px;
+      line-height: 1.55;
+    }
+    .seo h3 { font-size: 16px; margin: 14px 0 6px; color: var(--ink); }
+    .crawl {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 14px;
+      margin: 8px 0 0;
+      font-size: 13px;
+    }
+    .crawl a { color: #ffb3c8; }
+
     @media (max-width: 1100px) {
       .grid { grid-template-columns: repeat(3, 1fr); }
     }
@@ -159,14 +196,24 @@
     <div class="brand">Qyz Night</div>
     <h1>Эскорт Алматы и Астана — живые фото, 18+</h1>
     <p class="sub">Алматы · Астана · сразу в Telegram · 18+</p>
+    <p class="seo">Каталог эскорта Казахстана: индивидуалки и VIP-кыздар Алматы и Астаны. В карточках — живые фото, возраст, рост, вес и объёмы. Открываете Telegram и пишете менеджеру. Материал только для взрослых 18+.</p>
 
-    <h2>Алматы <span>/</span> анкеты</h2>
+    <h2>Эскорт Алматы — анкеты кыздар</h2>
     <div class="grid" id="almaty"></div>
 
-    <h2>Астана <span>/</span> анкеты</h2>
+    <h2>Эскорт Астана — анкеты кыздар</h2>
     <div class="grid" id="astana"></div>
 
-    <footer>18+ · Qyz Night</footer>
+    <section class="seo">
+      <h3>Индивидуалки Алматы</h3>
+      <p>Подборки по Алматы: VIP, elite, hot и классические анкеты. Параметры указаны как в постах каналов, фото из открытых лент Telegram.</p>
+      <div class="crawl" id="crawl-almaty"></div>
+      <h3>Индивидуалки и эскорт Астаны</h3>
+      <p>Отдельный блок по Астане: lux, VIP и более прямые ключи. Все ссылки ведут в открытые каналы города.</p>
+      <div class="crawl" id="crawl-astana"></div>
+    </section>
+
+    <footer>18+ · Qyz Night · эскорт Алматы и Астана</footer>
   </div>
 
   <script>
@@ -207,10 +254,10 @@
     function card(name, params, url) {
       const slug = url.split("/").pop();
       const list = slug === "SexyGirlsAlmatyVIP"
-        ? [1,2,3].map((n) => `img/${slug}_hq${n}.jpg`)
-        : [1,2,3].map((n) => `img/${slug}_${n}.jpg`);
+        ? [1,2,3].map((n) => `/qyz-city/img/${slug}_hq${n}.jpg`)
+        : [1,2,3].map((n) => `/qyz-city/img/${slug}_${n}.jpg`);
       const photos = list.map((src, i) =>
-        `<img src="${src}" alt="${name}" class="${i === 0 ? "active" : ""}">`
+        `<img src="${src}" alt="${name} эскорт фото 18+" class="${i === 0 ? "active" : ""}">`
       ).join("");
       const dots = list.map((_, i) => `<i class="${i === 0 ? "on" : ""}"></i>`).join("");
       return `<article class="card">
@@ -234,6 +281,14 @@
 
     render("almaty", almaty);
     render("astana", astana);
+
+    function crawl(id, list) {
+      document.getElementById(id).innerHTML = list.map(([n, p, u]) =>
+        `<a href="${u}" target="_blank" rel="noopener">${n} — ${p}</a>`
+      ).join("");
+    }
+    crawl("crawl-almaty", almaty);
+    crawl("crawl-astana", astana);
 
     document.querySelectorAll(".slider").forEach((slider) => {
       const imgs = [...slider.querySelectorAll("img")];
