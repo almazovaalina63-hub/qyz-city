@@ -44,8 +44,8 @@
     body {
       font-family: Manrope, sans-serif;
       background:
-        linear-gradient(180deg, rgba(7,5,7,.55) 0%, rgba(7,5,7,.72) 45%, rgba(7,5,7,.88) 100%),
-        url("bg.jpg") center / cover no-repeat fixed;
+        linear-gradient(180deg, rgba(7,5,7,.62) 0%, rgba(7,5,7,.78) 50%, rgba(7,5,7,.9) 100%),
+        url("bg.jpg") center top / cover no-repeat;
       background-color: #070507;
       color: var(--ink);
     }
@@ -89,6 +89,8 @@
       border: 1px solid var(--line);
       border-radius: 16px;
       overflow: hidden;
+      content-visibility: auto;
+      contain-intrinsic-size: 420px;
     }
     .slider {
       position: relative;
@@ -256,8 +258,9 @@
       const list = slug === "SexyGirlsAlmatyVIP"
         ? [1,2,3].map((n) => `/qyz-city/img/${slug}_hq${n}.jpg`)
         : [1,2,3].map((n) => `/qyz-city/img/${slug}_${n}.jpg`);
-      const photos = list.map((src, i) =>
-        `<img src="${src}" alt="${name} эскорт фото 18+" class="${i === 0 ? "active" : ""}">`
+      const photos = list.map((src, i) => i === 0
+        ? `<img src="${src}" alt="${name} эскорт фото 18+" class="active" decoding="async">`
+        : `<img data-src="${src}" alt="${name} эскорт фото 18+" decoding="async">`
       ).join("");
       const dots = list.map((_, i) => `<i class="${i === 0 ? "on" : ""}"></i>`).join("");
       return `<article class="card">
@@ -290,19 +293,31 @@
     crawl("crawl-almaty", almaty);
     crawl("crawl-astana", astana);
 
-    document.querySelectorAll(".slider").forEach((slider) => {
+    const sliders = [...document.querySelectorAll(".slider")].map((slider) => {
       const imgs = [...slider.querySelectorAll("img")];
       const dots = [...slider.querySelectorAll(".dots i")];
-      let i = 0;
+      let i = 0, on = false;
+      const load = (el) => {
+        if (el && el.dataset.src) { el.src = el.dataset.src; delete el.dataset.src; }
+      };
       const show = (n) => {
         i = (n + imgs.length) % imgs.length;
+        load(imgs[i]);
         imgs.forEach((el, k) => el.classList.toggle("active", k === i));
         dots.forEach((el, k) => el.classList.toggle("on", k === i));
       };
       slider.querySelector(".prev").onclick = () => show(i - 1);
       slider.querySelector(".next").onclick = () => show(i + 1);
-      setInterval(() => show(i + 1), 4500);
+      return { show, get on(){return on}, set on(v){on=v} };
     });
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        const idx = [...document.querySelectorAll(".slider")].indexOf(e.target);
+        if (idx >= 0) sliders[idx].on = e.isIntersecting;
+      });
+    }, {rootMargin: "80px"});
+    document.querySelectorAll(".slider").forEach((s) => io.observe(s));
+    setInterval(() => sliders.forEach((s) => { if (s.on) s.show(1); }), 5500);
   </script>
 </body>
 </html>
