@@ -206,7 +206,9 @@
 
     function card(name, params, url) {
       const slug = url.split("/").pop();
-      const list = [1,2,3].map((n) => `img/${slug}_${n}.jpg`);
+      const list = slug === "SexyGirlsAlmatyVIP"
+        ? [1,2,3].map((n) => `img/${slug}_hq${n}.jpg`)
+        : [1,2,3].map((n) => `img/${slug}_${n}.jpg`);
       const photos = list.map((src, i) =>
         `<img src="${src}" alt="${name}" class="${i === 0 ? "active" : ""}">`
       ).join("");
