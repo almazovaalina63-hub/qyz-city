@@ -230,20 +230,45 @@
       margin-top: 8px;
     }
     .seo {
-      margin: 22px 0 10px;
+      max-width: 560px;
+      margin: 28px auto 12px;
+      text-align: center;
       color: #d7b8c2;
       font-size: 14px;
       line-height: 1.55;
     }
-    .seo h3 { font-size: 16px; margin: 14px 0 6px; color: var(--ink); }
-    .crawl {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px 14px;
-      margin: 8px 0 0;
-      font-size: 13px;
+    .seo h3 { font-size: 16px; margin: 16px 0 6px; color: var(--ink); }
+    .slider { cursor: zoom-in; }
+    .lb {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 40;
+      background: rgba(4,2,4,.92);
+      align-items: center;
+      justify-content: center;
     }
-    .crawl a { color: #ffb3c8; }
+    .lb.on { display: flex; }
+    .lb img {
+      max-width: min(92vw, 720px);
+      max-height: 86vh;
+      object-fit: contain;
+      border-radius: 10px;
+    }
+    .lb .x, .lb .p, .lb .n {
+      position: absolute;
+      border: 0;
+      background: rgba(255,255,255,.12);
+      color: #fff;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      font-size: 22px;
+      cursor: pointer;
+    }
+    .lb .x { top: 16px; right: 16px; }
+    .lb .p { left: 12px; }
+    .lb .n { right: 12px; }
 
     @media (max-width: 1100px) {
       .grid { grid-template-columns: repeat(3, 1fr); }
@@ -261,8 +286,8 @@
 <body>
   <div class="wrap">
     <div class="brand">Qyz Night</div>
-    <h1>Эскорт Алматы и Астана — живые фото, 18+</h1>
-    <p class="sub">Алматы · Астана · сразу в Telegram · 18+</p>
+    <h1>Эскорт Казахстан — живые фото, 18+</h1>
+    <p class="sub">Алматы · Астана · 18+</p>
 
     <h2>Эскорт Алматы — анкеты кыздар</h2>
     <div class="grid" id="almaty"></div>
@@ -278,6 +303,12 @@
     </section>
 
     <footer>18+ · Qyz Night · эскорт Алматы и Астана</footer>
+    <div class="lb" id="lb" hidden>
+      <button class="x" type="button" aria-label="close">×</button>
+      <button class="p" type="button" aria-label="prev">‹</button>
+      <img alt="">
+      <button class="n" type="button" aria-label="next">›</button>
+    </div>
     <noscript>
       <a href="https://t.me/SexyGirlsAlmatyVIP">Даная Алматы</a>
       <a href="https://t.me/VIPKyzdarAlmaty">Асем Алматы</a>
@@ -401,6 +432,7 @@
       const imgs = [...slider.querySelectorAll("img")];
       const dots = [...slider.querySelectorAll(".dots i")];
       let i = 0, on = false;
+      const srcOf = (el) => el.dataset.src || el.src;
       const load = (el) => {
         if (el && el.dataset.src) { el.src = el.dataset.src; delete el.dataset.src; }
       };
@@ -410,8 +442,9 @@
         imgs.forEach((el, k) => el.classList.toggle("active", k === i));
         dots.forEach((el, k) => el.classList.toggle("on", k === i));
       };
-      slider.querySelector(".prev").onclick = () => show(i - 1);
-      slider.querySelector(".next").onclick = () => show(i + 1);
+      slider.querySelector(".prev").onclick = (e) => { e.stopPropagation(); show(i - 1); };
+      slider.querySelector(".next").onclick = (e) => { e.stopPropagation(); show(i + 1); };
+      slider.onclick = () => openLb(imgs.map(srcOf), i);
       return { show, get on(){return on}, set on(v){on=v} };
     });
     const io = new IntersectionObserver((entries) => {
@@ -422,6 +455,29 @@
     }, {rootMargin: "80px"});
     document.querySelectorAll(".slider").forEach((s) => io.observe(s));
     setInterval(() => sliders.forEach((s) => { if (s.on) s.show(1); }), 5500);
+
+    const lb = document.getElementById("lb");
+    const lbImg = lb.querySelector("img");
+    let pack = [], pi = 0;
+    const paint = () => { lbImg.src = pack[pi]; };
+    function openLb(list, start) {
+      pack = list.filter(Boolean);
+      pi = start % pack.length;
+      paint();
+      lb.hidden = false;
+      lb.classList.add("on");
+    }
+    const closeLb = () => { lb.classList.remove("on"); lb.hidden = true; };
+    lb.querySelector(".x").onclick = closeLb;
+    lb.querySelector(".p").onclick = () => { pi = (pi - 1 + pack.length) % pack.length; paint(); };
+    lb.querySelector(".n").onclick = () => { pi = (pi + 1) % pack.length; paint(); };
+    lb.onclick = (e) => { if (e.target === lb) closeLb(); };
+    document.addEventListener("keydown", (e) => {
+      if (!lb.classList.contains("on")) return;
+      if (e.key === "Escape") closeLb();
+      if (e.key === "ArrowLeft") lb.querySelector(".p").click();
+      if (e.key === "ArrowRight") lb.querySelector(".n").click();
+    });
   </script>
 </body>
 </html>
