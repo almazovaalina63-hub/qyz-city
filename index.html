@@ -77,6 +77,7 @@
       font-family: Unbounded, sans-serif;
       font-size: 18px;
       margin: 8px 0 12px;
+      scroll-margin-top: 16px;
     }
     h2 span { color: var(--pink); }
     .grid {
@@ -302,11 +303,11 @@
     <h1>Эскорт Казахстан — живые фото, 18+</h1>
     <p class="sub">Алматы · Астана · 18+</p>
 
-    <h2>Эскорт Алматы — анкеты кыздар</h2>
-    <div class="grid" id="almaty"></div>
+    <h2 id="almaty">Эскорт Алматы — анкеты кыздар</h2>
+    <div class="grid" id="almaty-grid"></div>
 
-    <h2>Эскорт Астана — анкеты кыздар</h2>
-    <div class="grid" id="astana"></div>
+    <h2 id="astana">Эскорт Астана — анкеты кыздар</h2>
+    <div class="grid" id="astana-grid"></div>
 
     <section class="seo">
       <h3>Эскорт Алматы</h3>
@@ -438,8 +439,19 @@
     function render(id, list) {
       document.getElementById(id).innerHTML = list.map(card).join("");
     }
-    render("almaty", almaty);
-    render("astana", astana);
+    render("almaty-grid", almaty);
+    render("astana-grid", astana);
+
+    (function openCityBlock() {
+      var q = new URLSearchParams(location.search);
+      var camp = (q.get("utm_campaign") || "").toLowerCase();
+      var hash = (location.hash || "").replace("#", "").toLowerCase();
+      var city = "almaty";
+      if (hash === "astana" || camp === "ast" || camp === "astana") city = "astana";
+      if (hash === "almaty" || camp === "ala" || camp === "almaty") city = "almaty";
+      var el = document.getElementById(city);
+      if (el) setTimeout(function () { el.scrollIntoView({ behavior: "smooth", block: "start" }); }, 50);
+    })();
 
     const sliders = [...document.querySelectorAll(".slider")].map((slider) => {
       const imgs = [...slider.querySelectorAll("img")];
